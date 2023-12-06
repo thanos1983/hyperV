@@ -91,7 +91,7 @@ variable "tls_server_name" {
 variable "use_ntlm" {
   description = "Use NTLM for authentication for HyperV api calls."
   type        = bool
-  default     = true
+  default     = null
 }
 
 variable "user" {

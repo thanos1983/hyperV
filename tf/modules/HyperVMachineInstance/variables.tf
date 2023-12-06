@@ -59,13 +59,13 @@ variable "checkpoint_type" {
 
 variable "dvd_drives_blocks" {
   description = "Nested Schema for dvd_drives."
-  type        = map(object({
+  type        = list(object({
     controller_location = number
     controller_number   = number
     path                = optional(string)
     resource_pool_name  = optional(string)
   }))
-  default = {}
+  default = []
 }
 
 variable "dynamic_memory" {
@@ -100,7 +100,7 @@ variable "guest_controlled_cache_types" {
 
 variable "hard_disk_drives_blocks" {
   description = "Nested Schema for dvd_drives."
-  type        = map(object({
+  type        = list(object({
     controller_location             = number
     controller_number               = number
     controller_type                 = optional(string)
@@ -113,7 +113,7 @@ variable "hard_disk_drives_blocks" {
     resource_pool_name              = optional(string)
     support_persistent_reservations = optional(bool)
   }))
-  default = {}
+  default = []
 }
 
 variable "high_memory_mapped_io_space" {
@@ -164,7 +164,7 @@ variable "memory_startup_bytes" {
 
 variable "network_adaptors_blocks" {
   description = "Specifies the network adaptors block(s)."
-  type        = object({
+  type        = list(object({
     name                                       = string
     allow_teaming                              = optional(string)
     device_naming                              = optional(string)
@@ -205,8 +205,8 @@ variable "network_adaptors_blocks" {
     vrss_enabled                               = optional(bool)
     wait_for_ips                               = optional(bool)
     ip_addresses                               = optional(list(string))
-  })
-  default = {}
+  }))
+  default = []
 }
 
 variable "notes" {

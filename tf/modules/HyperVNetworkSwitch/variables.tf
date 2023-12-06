@@ -106,7 +106,7 @@ variable "switch_type" {
     condition     = contains(["Internal", "Private", "External"], title(tostring(var.switch_type)))
     error_message = "Parameter must be \"Internal\", \"Private\" or \"External\"."
   }
-  default     = null
+  default = "Internal"
 }
 
 variable "timeouts_block" {
